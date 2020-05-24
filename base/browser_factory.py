@@ -5,7 +5,7 @@ It creates a webdriver instance based on browser configurations
 Example:
     wdf = WebDriverFactory(browser)
     wdf.getWebDriverInstance()
-"""1
+"""
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
