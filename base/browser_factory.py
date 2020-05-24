@@ -67,8 +67,7 @@ class WebDriverFactory:
             chrome_options.binary_location = "/usr/bin/google-chrome-stable"
             chrome_path = os.path.join(cwd, 'base', 'chromedriver')
             chrome_path = '/usr/local/bin/chromedriver'
-            driver = webdriver.Chrome(chrome_path, options=chrome_options,
-                                      service_args=['--verbose', '--log-path=/tmp/logs/chromedriver.log'])
+            driver = webdriver.Chrome(chrome_path, options=chrome_options)
         else:
             driver = webdriver.Firefox()
 
