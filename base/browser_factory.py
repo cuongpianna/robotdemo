@@ -40,7 +40,7 @@ class WebDriverFactory:
         chrome_options = Options()
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-setuid-sandbox')
-        #chrome_options.add_argument("--headless")
+        # chrome_options.add_argument("--headless")
         # chrome_options.binary_location = "C:\\path\\to\\chrome.exe"
         chrome_options.add_argument('--remote-debugging-port=9222')
         chrome_options.add_argument('--disable-dev-shm-usage')
@@ -67,7 +67,8 @@ class WebDriverFactory:
             chrome_options.binary_location = "/usr/bin/google-chrome-stable"
             chrome_path = os.path.join(cwd, 'base', 'chromedriver')
             chrome_path = '/usr/local/bin/chromedriver'
-            driver = webdriver.Chrome(chrome_path, options=chrome_options)
+            driver = webdriver.Chrome(chrome_path, options=chrome_options,
+                                      service_args=['--verbose', '--log-path=/tmp/logs/chromedriver.log'])
         else:
             driver = webdriver.Firefox()
 
