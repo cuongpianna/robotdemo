@@ -53,6 +53,8 @@ class WebDriverFactory:
         chrome_options.add_argument(
             '--disable-extensions --disable-extensions-file-access-check --disable-extensions-http-throttling')
         cwd = os.getcwd()
+        display = Display(visible=0, size=(800, 600))
+        display.start()
         if self.browser == "iexplorer":
             # Set ie driver
             driver = webdriver.Ie()
@@ -68,8 +70,6 @@ class WebDriverFactory:
             driver = webdriver.Firefox()
 
         # Setting Driver Implicit Time out for An Element
-        display = Display(visible=0, size=(800, 600))
-        display.start()
         driver.implicitly_wait(3)
         # Maximize the window
         # Loading browser with App URL
