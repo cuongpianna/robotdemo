@@ -53,7 +53,6 @@ class WebDriverFactory:
         chrome_options.add_argument('--disable-extensions-http-throttling')
         chrome_options.add_argument(
             '--disable-extensions --disable-extensions-file-access-check --disable-extensions-http-throttling')
-        chrome_options.binary_location = "/usr/bin/google-chrome-stable"
         cwd = os.getcwd()
         # display = Display(visible=0, size=(800, 600))
         # display.start()
@@ -61,10 +60,11 @@ class WebDriverFactory:
             # Set ie driver
             driver = webdriver.Ie()
         elif self.browser == "firefox":
-            firefox_path = os.path.join(cwd, 'base', 'geckodriver.exe')
+            firefox_path = os.path.join(cwd, 'base', 'geckodriver')
             driver = webdriver.Firefox(executable_path=firefox_path)
         elif self.browser == "chrome":
             # Set chrome driver
+            chrome_options.binary_location = "/usr/bin/google-chrome-stable"
             chrome_path = os.path.join(cwd, 'base', 'chromedriver')
             chrome_path = '/usr/local/bin/chromedriver'
             driver = webdriver.Chrome(chrome_path, options=chrome_options)
