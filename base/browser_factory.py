@@ -9,6 +9,7 @@ Example:
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from pyvirtualdisplay import Display
 
 
 class WebDriverFactory:
@@ -67,6 +68,8 @@ class WebDriverFactory:
             driver = webdriver.Firefox()
 
         # Setting Driver Implicit Time out for An Element
+        display = Display(visible=0, size=(800, 600))
+        display.start()
         driver.implicitly_wait(3)
         # Maximize the window
         # Loading browser with App URL
