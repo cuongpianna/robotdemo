@@ -38,7 +38,6 @@ class WebDriverFactory:
         """
 
         chrome_options = Options()
-        chrome_options.binary_location = "/usr/bin/google-chrome-stable"
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-setuid-sandbox')
         #chrome_options.add_argument("--headless")
@@ -54,6 +53,7 @@ class WebDriverFactory:
         chrome_options.add_argument('--disable-extensions-http-throttling')
         chrome_options.add_argument(
             '--disable-extensions --disable-extensions-file-access-check --disable-extensions-http-throttling')
+        chrome_options.binary_location = "/usr/bin/google-chrome-stable"
         cwd = os.getcwd()
         # display = Display(visible=0, size=(800, 600))
         # display.start()
