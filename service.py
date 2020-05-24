@@ -8,9 +8,7 @@ from constant import URL_BASE, URL_ENDPOINT
 def get_driver():
     print("Running one time setUp")
     wdf = WebDriverFactory('chrome')
-    print(wdf)
     driver = wdf.get_web_driver_instance()
-    print(driver)
     return driver
 
 
