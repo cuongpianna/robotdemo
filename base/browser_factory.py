@@ -5,7 +5,7 @@ It creates a webdriver instance based on browser configurations
 Example:
     wdf = WebDriverFactory(browser)
     wdf.getWebDriverInstance()
-"""
+"""1
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -39,21 +39,21 @@ class WebDriverFactory:
 
         chrome_options = Options()
         chrome_options.add_argument('--no-sandbox')
-        # chrome_options.add_argument('--disable-setuid-sandbox')
-        # chrome_options.add_argument('--start-maximized')
+        chrome_options.add_argument('--disable-setuid-sandbox')
+        chrome_options.add_argument('--start-maximized')
         # # chrome_options.add_argument("--headless")
         # # chrome_options.binary_location = "C:\\path\\to\\chrome.exe"
         # chrome_options.add_argument('--remote-debugging-port=9222')
         # chrome_options.add_argument('--disable-dev-shm-usage')
         # chrome_options.add_argument('--disable-dev-shm-using')
-        # chrome_options.add_argument('disable-infobars')
-        # chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])
+        chrome_options.add_argument('disable-infobars')
+        chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])
         # chrome_options.add_argument('--disable-gpu')
-        # chrome_options.add_argument('--disable-extensions')
-        # chrome_options.add_argument("--disable-extensions-file-access-check")
-        # chrome_options.add_argument('--disable-extensions-http-throttling')
-        # chrome_options.add_argument(
-        #     '--disable-extensions --disable-extensions-file-access-check --disable-extensions-http-throttling')
+        chrome_options.add_argument('--disable-extensions')
+        chrome_options.add_argument("--disable-extensions-file-access-check")
+        chrome_options.add_argument('--disable-extensions-http-throttling')
+        chrome_options.add_argument(
+            '--disable-extensions --disable-extensions-file-access-check --disable-extensions-http-throttling')
         cwd = os.getcwd()
         # display = Display(visible=0, size=(800, 600))
         # display.start()
