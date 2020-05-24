@@ -37,6 +37,7 @@ class WebDriverFactory:
         """
 
         chrome_options = Options()
+        chrome_options.binary_location = "/usr/bin/usr/bin/google-chrome-stable"
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument("--headless")
         # chrome_options.binary_location = "C:\\path\\to\\chrome.exe"
