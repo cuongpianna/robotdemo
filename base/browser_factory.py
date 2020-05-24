@@ -43,6 +43,7 @@ class WebDriverFactory:
         chrome_options.add_argument("--kiosk")
         chrome_options.add_argument('disable-infobars')
         chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])
+        chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-extensions')
         chrome_options.add_argument("--disable-extensions-file-access-check")
         chrome_options.add_argument('--disable-extensions-http-throttling')
@@ -58,6 +59,7 @@ class WebDriverFactory:
         elif self.browser == "chrome":
             # Set chrome driver
             chrome_path = os.path.join(cwd, 'base', 'chromedriver')
+            chrome_path = '/usr/local/bin/chromedriver'
             driver = webdriver.Chrome(chrome_path, options=chrome_options)
         else:
             driver = webdriver.Firefox()
