@@ -10,7 +10,6 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from pyvirtualdisplay import Display
 
 
 
