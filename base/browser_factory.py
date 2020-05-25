@@ -78,7 +78,6 @@ class WebDriverFactory:
             options.add_argument('--disable-dev-shm-usage')
             options.add_argument('--disable-dev-shm-using')
             options.add_argument('disable-infobars')
-            options.add_experimental_option("excludeSwitches", ['enable-automation'])
             # chrome_options.add_argument('--disable-gpu')
             options.add_argument('--disable-extensions')
             options.add_argument("--disable-extensions-file-access-check")
