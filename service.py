@@ -3,11 +3,12 @@ import socket
 
 from base.browser_factory import WebDriverFactory
 from constant import URL_BASE, URL_ENDPOINT
+from constant import UDP_PORT_STATUS, UDP_IP_STATUS
 
 
 def get_driver():
     print("Running one time setUp")
-    wdf = WebDriverFactory('chrome')
+    wdf = WebDriverFactory('firefox')
     driver = wdf.get_web_driver_instance()
     return driver
 
@@ -15,11 +16,9 @@ def get_driver():
 driver = get_driver()
 
 # ======================================================================================== #
-UDP_IP_STATUS = "127.0.0.1"  # Local host IP
-UDP_PORT_GET_STATUS = 12345
 
 sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
-sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_GET_STATUS))
+sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
 
 
 def GET_STATUS():
