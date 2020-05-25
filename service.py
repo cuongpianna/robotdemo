@@ -25,7 +25,6 @@ def GET_STATUS():
     while True:
         msg_robot_status, addr = sock_get_status.recvfrom(10)
         if (addr[0] == UDP_IP_STATUS):
-            print(msg_robot_status)
             status = int(msg_robot_status)
             if status == 1:
                 driver.get('{}?status={}'.format(URL_BASE, status))

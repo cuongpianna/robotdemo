@@ -68,6 +68,24 @@ class WebDriverFactory:
             options.set_capability('marionette', False)
             options.add_argument('--remote-debugging-port=9222')
 
+            options.add_argument('--no-sandbox')
+            options.add_argument('--disable-setuid-sandbox')
+            options.add_argument('--start-maximized')
+            options.add_argument("--kiosk");
+            # # chrome_options.add_argument("--headless")
+            # # chrome_options.binary_location = "C:\\path\\to\\chrome.exe"
+            # chrome_options.add_argument('--remote-debugging-port=9222')
+            options.add_argument('--disable-dev-shm-usage')
+            options.add_argument('--disable-dev-shm-using')
+            options.add_argument('disable-infobars')
+            options.add_experimental_option("excludeSwitches", ['enable-automation'])
+            # chrome_options.add_argument('--disable-gpu')
+            options.add_argument('--disable-extensions')
+            options.add_argument("--disable-extensions-file-access-check")
+            options.add_argument('--disable-extensions-http-throttling')
+            options.add_argument(
+                '--disable-extensions --disable-extensions-file-access-check --disable-extensions-http-throttling')
+
             firefox_path = os.path.join(cwd, 'base', 'geckodriver')
             driver = webdriver.Firefox(executable_path=firefox_path, options=options)
         elif self.browser == "chrome":
