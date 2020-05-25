@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfff791b-0bb1-445f-99c8-74c5da09ed96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/geckodriver" beforeDir="false" afterPath="$PROJECT_DIR$/base/geckodriver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/browser_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/base/browser_factory.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +73,7 @@
       <updated>1590220408424</updated>
       <workItem from="1590220409849" duration="6977000" />
       <workItem from="1590295692172" duration="10927000" />
-      <workItem from="1590372728334" duration="2216000" />
+      <workItem from="1590372728334" duration="4909000" />
     </task>
     <servers />
   </component>

@@ -9,7 +9,9 @@ Example:
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from pyvirtualdisplay import Display
+
 
 
 class WebDriverFactory:
@@ -62,8 +64,10 @@ class WebDriverFactory:
             # Set ie driver
             driver = webdriver.Ie()
         elif self.browser == "firefox":
+            options = FirefoxOptions()
+            options.set_capability('marionette', False)
             firefox_path = os.path.join(cwd, 'base', 'geckodriver')
-            driver = webdriver.Firefox(executable_path=firefox_path)
+            driver = webdriver.Firefox(executable_path=firefox_path, options=options)
         elif self.browser == "chrome":
             # Set chrome driver
             chrome_options.binary_location = "/usr/bin/google-chrome-stable"
