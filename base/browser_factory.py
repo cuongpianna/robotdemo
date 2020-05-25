@@ -66,6 +66,8 @@ class WebDriverFactory:
         elif self.browser == "firefox":
             options = FirefoxOptions()
             options.set_capability('marionette', False)
+            options.add_argument('--remote-debugging-port=9222')
+
             firefox_path = os.path.join(cwd, 'base', 'geckodriver')
             driver = webdriver.Firefox(executable_path=firefox_path, options=options)
         elif self.browser == "chrome":

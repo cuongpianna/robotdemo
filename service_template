@@ -1,19 +1,13 @@
 [Unit]
 Description=uWSGI Python container server
-
 After=network.target
-
 
 [Service]
 
 User=robot
-
 Group=www-data
-
 WorkingDirectory=/home/robot/robotdemo
-
 Environment="PATH=/home/robot/robotdemo/venv/bin"
-
 ExecStart=/home/robot/robotdemo/venv/bin/python /home/robot/robotdemo/status_UDP.py
 
 
