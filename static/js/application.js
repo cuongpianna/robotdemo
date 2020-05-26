@@ -28,13 +28,13 @@ $(document).ready(function(){
             if(msg.status == 1) {
                 numbers_string = '<div>Chế độ điều khiển tự động</div><div>Kết nối trạm điều khiển trung tâm thành công</div>';
             }else {
-                numbers_string = '<div>Chế độ điều khiển tự động</div><div>Kết nối trạm điều khiển trung tâm thất bại</div>';
+                numbers_string = '<div>Chế độ điều khiển bằng tay</div><div>Kết nối trạm điều khiển trung tâm thất bại</div>';
             }
         }else if(msg.number == 4) {
             if(msg.status == 1) {
                 numbers_string = '<div>Chế độ tự động bấm vạch từ</div><div>Kết nối trạm điều khiển trung tâm thành công</div>';
             }else {
-                numbers_string = '<div>Chế độ tự động bấm vạch từ</div><div>Kết nối trạm điều khiển trung tâm thất bại</div>';
+                numbers_string = '<div>Chế độ điều khiển bằng tay</div><div>Kết nối trạm điều khiển trung tâm thất bại</div>';
             }
         }
         $('#log').html(numbers_string);
