@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfff791b-0bb1-445f-99c8-74c5da09ed96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/RobotDemo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RobotDemo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/application.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +85,7 @@
       <workItem from="1590220409849" duration="6977000" />
       <workItem from="1590295692172" duration="10927000" />
       <workItem from="1590372728334" duration="9202000" />
-      <workItem from="1590475313922" duration="769000" />
+      <workItem from="1590475313922" duration="1451000" />
     </task>
     <servers />
   </component>

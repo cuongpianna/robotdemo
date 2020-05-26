@@ -20,21 +20,21 @@ $(document).ready(function(){
             numbers_string = 'Chế độ điều khiển bằng tay';
         }else if(msg.number == 2) {
             if(msg.status == 1) {
-                numbers_string = 'Chế độ điều khiển bằng tay - Kết nối trạm điều khiển trung tâm thành công';
+                numbers_string = '<div>Chế độ điều khiển bằng tay</div><div>Kết nối trạm điều khiển trung tâm thành công</div>';
             }else {
-                numbers_string = 'Chế độ điều khiển bằng tay - Kết nối trạm điều khiển trung tâm thất bại';
+                numbers_string = '<div>Chế độ điều khiển bằng tay</div><div>Kết nối trạm điều khiển trung tâm thất bại</div>';
             }
         }else if(msg.number == 3) {
             if(msg.status == 1) {
-                numbers_string = 'Chế độ điều khiển tự động - Kết nối trạm điều khiển trung tâm thành công';
+                numbers_string = '<div>Chế độ điều khiển tự động</div><div>Kết nối trạm điều khiển trung tâm thành công</div>';
             }else {
-                numbers_string = 'Chế độ điều khiển tự động - Kết nối trạm điều khiển trung tâm thất bại';
+                numbers_string = '<div>Chế độ điều khiển tự động</div><div>Kết nối trạm điều khiển trung tâm thất bại</div>';
             }
         }else if(msg.number == 4) {
             if(msg.status == 1) {
-                numbers_string = 'Chế độ tự động bấm vạch từ - Kết nối trạm điều khiển trung tâm thành công';
+                numbers_string = '<div>Chế độ tự động bấm vạch từ</div><div>Kết nối trạm điều khiển trung tâm thành công</div>';
             }else {
-                numbers_string = 'Chế độ tự động bấm vạch từ - Kết nối trạm điều khiển trung tâm thất bại';
+                numbers_string = '<div>Chế độ tự động bấm vạch từ</div><div>Kết nối trạm điều khiển trung tâm thất bại</div>';
             }
         }
         $('#log').html(numbers_string);
