@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+
+    var modal = $('.modal');
     //connect to the socket server.
     var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
     var numbers_received = [];
@@ -19,8 +21,10 @@ $(document).ready(function(){
         if(msg.number == 1) {
             $('.row').removeClass('active');
             $('.row1').addClass('active');
+            modal.hide();
             numbers_string = 'Chế độ điều khiển bằng tay';
         }else if(msg.number == 2) {
+            modal.hide();
             $('.row').removeClass('active');
             $('.row2').addClass('active');
             if(msg.status == 1) {
@@ -29,6 +33,7 @@ $(document).ready(function(){
                 numbers_string = '<div>Chế độ điều khiển bằng tay</div><div>Kết nối trạm điều khiển trung tâm thất bại</div>';
             }
         }else if(msg.number == 3) {
+            modal.hide();
             $('.row').removeClass('active');
             $('.row3').addClass('active');
             if(msg.status == 1) {
@@ -39,6 +44,7 @@ $(document).ready(function(){
         }else if(msg.number == 4) {
             $('.row').removeClass('active');
             $('.row4').addClass('active');
+            modal.show();
             if(msg.status == 1) {
                 numbers_string = '<div>Chế độ tự động bấm vạch từ</div><div>Kết nối trạm điều khiển trung tâm thành công</div>';
             }else {
