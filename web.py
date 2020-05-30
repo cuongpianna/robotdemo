@@ -5,7 +5,7 @@ import socket
 from constant import UDP_IP_STATUS, UDP_PORT_STATUS, IP_SERVER
 from flask_socketio import SocketIO
 from threading import Thread, Event
-from pythonping import ping
+import requests
 
 sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
 sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
@@ -20,8 +20,11 @@ thread_stop_event = Event()
 
 def check_status():
     try:
-        print(ping(IP_SERVER, verbose=True))
-        return True
+        rq = requests.get(IP_SERVER)
+        if rq.status_code == 200:
+            return True
+        else:
+            return False
     except:
         return False
 
