@@ -3,6 +3,7 @@ import requests
 import urllib
 import os
 
+
 def check_connection():
     bash_command = "/usr/bin/google-chrome-stable http://localhost:5000"
     try:
