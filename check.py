@@ -3,7 +3,7 @@ import requests
 
 def check_connection():
     bash_command = "/usr/bin/google-chrome-stable http://localhost:5000"
-    if(requests.get('dlakskjdlkasdkl').status_code != 200):
+    if(requests.get('https://nguyenvanhieuu.com/').status_code != 200):
         output = subprocess.check_output(['bash', '-c', bash_command])
 
 
