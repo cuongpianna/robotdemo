@@ -91,6 +91,10 @@
     height: calc(100vh - 3px);
 }
 
+.modal-content .iframe{
+    
+}
+
 .banner{
     position: absolute;
     width: 190px;
