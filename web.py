@@ -42,7 +42,12 @@ def GET_STATUS():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    status = check_status()
+    if status:
+        classes = 'active'
+    else:
+        classes = 'deactive'
+    return render_template('index.html', classes = classes)
 
 
 @socketio.on('connect', namespace='/test')

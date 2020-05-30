@@ -79,6 +79,10 @@
   background-color: rgba(0, 0, 0, .4);
 }
 
+.modal.active{
+    display: block;
+}
+
 .modal-content {
   background-color: #fefefe;
   margin: auto;
