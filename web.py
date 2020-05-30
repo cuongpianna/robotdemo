@@ -21,6 +21,8 @@ thread_stop_event = Event()
 def check_status():
     try:
         rq = requests.get(IP_SERVER, verify=False)
+        print(rq)
+        print(rq.status_code)
         if rq.status_code == 200:
             return True
         else:
