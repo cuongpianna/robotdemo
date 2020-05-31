@@ -6,6 +6,7 @@ from constant import UDP_IP_STATUS, UDP_PORT_STATUS, IP_SERVER
 from flask_socketio import SocketIO
 from threading import Thread, Event
 import requests
+from tcping import Ping
 
 sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
 sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
@@ -31,11 +32,22 @@ def check_status():
         return False
 
 
+def check_status2():
+    ping = Ping(IP_SERVER)
+    try:
+        p = ping.ping(3)
+        print("===========")
+        print(p)
+        return True
+    except:
+        return False
+
+
 def GET_STATUS():
     while True:
         msg_robot_status, addr = sock_get_status.recvfrom(10)
         if addr[0] == UDP_IP_STATUS:
-            if check_status():
+            if check_status2():
                 status = 1
             else:
                 status = 0
@@ -44,7 +56,7 @@ def GET_STATUS():
 
 @app.route('/')
 def index():
-    status = check_status()
+    status = check_status2()
     if status:
         classes = 'active'
     else:
