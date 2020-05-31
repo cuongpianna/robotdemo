@@ -6,7 +6,7 @@ from constant import UDP_IP_STATUS, UDP_PORT_STATUS, IP_SERVER
 from flask_socketio import SocketIO
 from threading import Thread, Event
 import requests
-from tcping import Ping
+# from tcping import Ping
 
 sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
 sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
@@ -33,14 +33,7 @@ def check_status():
 
 
 def check_status2():
-    ping = Ping(IP_SERVER)
-    try:
-        p = ping.ping(3)
-        print("===========")
-        print(p)
-        return True
-    except:
-        return False
+    return True
 
 
 def GET_STATUS():

@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bfff791b-0bb1-445f-99c8-74c5da09ed96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constant.py" beforeDir="false" afterPath="$PROJECT_DIR$/constant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web.py" beforeDir="false" afterPath="$PROJECT_DIR$/web.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
