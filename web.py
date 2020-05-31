@@ -47,7 +47,7 @@ def GET_STATUS():
     while True:
         msg_robot_status, addr = sock_get_status.recvfrom(10)
         if addr[0] == UDP_IP_STATUS:
-            if check_status2():
+            if check_status():
                 status = 1
             else:
                 status = 0
@@ -55,14 +55,14 @@ def GET_STATUS():
 
 
 def CHECK_CONNECTION():
-    status = check_status2()
+    status = check_status()
     number = 1 if status else 0
     socketio.emit('tt', {'connection': number, 'udp': 0}, broadcast=True)
 
 
 @app.route('/')
 def index():
-    status = check_status2()
+    status = check_status()
     if status:
         classes = 'active'
     else:
