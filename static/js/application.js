@@ -2,12 +2,29 @@ $(document).ready(function () {
 
     var modal = $('.modal');
     //connect to the socket server.
-    var socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+
     var numbers_received = [];
 
-    //receive details from server
+    socket.on('tt', function (msg) {
+       var connection = msg.connection;
+       if(connection == 0) { // khong ket noi mang
+            modal.hide()
+       }else{
+           modal.show();
+             // document.getElementById('iframeContent').contentWindow.location.reload();
+           // $('#iframeContent').attr('src', 'http://178.128.26.135/');
+       }
+    })
+
+    setInterval(function () {
+        socket.emit('connection2');
+    }, 1000)
+
+    // receive details from server
     socket.on('newUdp', function (msg) {
         console.log("Received number" + msg.number);
+         socket.emit('status',msg.number);
         //maintain a list of ten numbers
         if (numbers_received.length >= 10) {
             numbers_received.shift()
