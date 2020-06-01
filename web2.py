@@ -68,9 +68,47 @@ def index():
     else:
         classes = 'deactive'
 
-    msg = ''
-    led = ''
+    try:
+        sock_get_status.settimeout(1.0)
+        msg_robot_status, addr = sock_get_status.recvfrom(1024)
+        msg_robot_status = int(msg_robot_status)
+    except:
+        msg_robot_status = 0
 
+    print('-------------')
+    print(msg_robot_status)
+
+    if msg_robot_status == 0:
+        msg = 'Chế độ điều khiển bằng tay'
+        led = 'LED Base_Station  OFF + LED Manual_Mode ON'
+    elif msg_robot_status == 1:
+        if status:
+            msg = 'Chế độ điều khiển bằng tay'
+            led = 'LED Base_Station  OFF + LED Manual_Mode ON'
+        else:
+            msg = 'Đang ở Chế độ điều khiển bằng tay nhưng không có kết nối đến server'
+            led = 'LED Base_Station  OFF + LED Manual_Mode ON'
+    elif msg_robot_status == 2:
+        if status:
+            msg = 'Chế độ điều khiển bằng tay'
+            led = 'LED Base_Station ON + LED Manual_Mode ON'
+        else:
+            msg = 'Đang ở Chế độ điều khiển bằng tay nhưng không có kết nối đến server'
+            led = 'LED Base_Station ON + LED Manual_Mode ON'
+    elif msg_robot_status == 3:
+        if status:
+            msg = 'Chế độ điều khiển tự động'
+            led = 'LED Base_Station ON + LED Auto_Mode ON'
+        else:
+            msg = 'Đang ở Chế độ điều khiển tự động nhưng không có kết nối đến server'
+            led = 'LED Base_Station ON + LED Auto_Mode ON'
+    elif msg_robot_status == 4:
+        if status:
+            msg = 'Chế độ tự động bấm vạch từ'
+            led = 'LED Base_Station ON + LED Auto_Following_Line_Mode ON'
+        else:
+            msg = 'Đang ở Chế độ tự động bấm vạch từ nhưng không có kết nối đến server'
+            led = 'LED Base_Station ON + LED Auto_Following_Line_Mode ON'
     return render_template('index.html', classes = classes, msg=msg, led=led)
 
 
