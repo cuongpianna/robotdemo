@@ -59,7 +59,7 @@ $(document).ready(function () {
             $('.robot-info').html(status);
             var src = $('iframe').attr('src');
             if (src == '')
-                $('iframe').attr('src', 'https://157.230.245.8/f');
+                $('iframe').attr('src', 'https://172.20.10.3:8443/robot');
 
             if (msg.status == 1) {
                 setTimeout(function () {
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
             var src = $('iframe').attr('src');
             if (src == '')
-                $('iframe').attr('src', 'https://157.230.245.8/f');
+                $('iframe').attr('src', 'https://172.20.10.3:8443/robot');
 
             if (msg.status == 1) {
                 setTimeout(function () {
@@ -91,7 +91,7 @@ $(document).ready(function () {
 
             var src = $('iframe').attr('src');
             if (src == '')
-                $('iframe').attr('src', 'https://157.230.245.8/f');
+                $('iframe').attr('src', 'https://172.20.10.3:8443/robot');
             // modal.hide();
             if (msg.status == 1) {
                 setTimeout(function () {

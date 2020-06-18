@@ -2,4 +2,4 @@ UDP_IP_STATUS = "127.0.0.1"  # Local host IP
 UDP_PORT_STATUS = 12345
 URL_ENDPOINT = 'http://localhost:5000/endpoint'
 URL_BASE = 'http://localhost:5000/dktt'
-IP_SERVER = 'https://lists.cacert.org/'
+IP_SERVER = 'https://172.20.10.3:8443/robot'
