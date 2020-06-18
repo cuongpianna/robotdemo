@@ -30,13 +30,13 @@ def TEST_LOOP():
             robot_status = 1  # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
             robot_status_updated = 1
         elif cnt == 20:
-            robot_status = 2  # Ket noi tram dieu khien trung tam + Che do DK bang tay
+            robot_status = 1  # Ket noi tram dieu khien trung tam + Che do DK bang tay
             robot_status_updated = 1
         elif cnt == 40:
-            robot_status = 3  # Ket noi tram dieu khien trung tam + Che do tu dong
+            robot_status = 1  # Ket noi tram dieu khien trung tam + Che do tu dong
             robot_status_updated = 1
         elif cnt == 60:
-            robot_status = 4  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status = 1  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
             robot_status_updated = 1
         elif cnt == 80:  # reset loop
             cnt = 0

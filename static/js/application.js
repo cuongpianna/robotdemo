@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    var e = 0;
+
     var modal = $('.modal');
     //connect to the socket server.
     var socket = io.connect('http://' + document.domain + ':' + location.port);
@@ -35,12 +37,16 @@ $(document).ready(function () {
         for (var i = 0; i < numbers_received.length; i++) {
             numbers_string = numbers_string + '<p>' + numbers_received[i].toString() + '</p>';
         }
+
+        e = msg.number;
+
         if (msg.number == 1) {
             modal.hide();
             numbers_string = 'Chế độ điều khiển bằng tay';
             status = 'LED Base_Station  OFF + LED Manual_Mode ON';
             $('#mode').html(numbers_string);
             $('.robot-info').html(status);
+
         } else if (msg.number == 2) {
             numbers_string = 'Chế độ điều khiển bằng tay';
             status = "LED Base_Station ON + LED Manual_Mode ON";
