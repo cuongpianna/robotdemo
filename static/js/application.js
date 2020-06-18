@@ -73,6 +73,11 @@ $(document).ready(function () {
             $('#mode').html(numbers_string);
             $('.robot-info').html(status);
             // modal.hide();
+
+            var src = $('iframe').attr('src');
+            if (src == '')
+                $('iframe').attr('src', 'https://157.230.245.8/f');
+
             if (msg.status == 1) {
                 setTimeout(function () {
                     modal.show();
@@ -83,6 +88,10 @@ $(document).ready(function () {
             status = 'LED Base_Station ON + LED Auto_Following_Line_Mode ON';
             $('#mode').html(numbers_string);
             $('.robot-info').html(status);
+
+            var src = $('iframe').attr('src');
+            if (src == '')
+                $('iframe').attr('src', 'https://157.230.245.8/f');
             // modal.hide();
             if (msg.status == 1) {
                 setTimeout(function () {
