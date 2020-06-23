@@ -10,22 +10,22 @@ $(document).ready(function () {
 
     var connectionNetwork = -1;
 
-    socket.on('tt', function (msg) {
-        var connection = msg.connection;
-        if (connectionNetwork != connection) {
-            connectionNetwork = connection;
-            if (connection == 0) { // khong ket noi mang
-                modal.hide()
-            } else {
-                modal.show();
-            }
-        }
+    // socket.on('tt', function (msg) {
+    //     var connection = msg.connection;
+    //     if (connectionNetwork != connection) {
+    //         connectionNetwork = connection;
+    //         if (connection == 0) { // khong ket noi mang
+    //             modal.hide()
+    //         } else {
+    //             modal.show();
+    //         }
+    //     }
+    //
+    // })
 
-    })
-
-    setInterval(function () {
-        socket.emit('connection2');
-    }, 1000)
+    // setInterval(function () {
+    //     socket.emit('connection2');
+    // }, 1000)
 
     // receive details from server
     socket.on('newUdp', function (msg) {
@@ -59,7 +59,7 @@ $(document).ready(function () {
             $('.robot-info').html(status);
             var src = $('iframe').attr('src');
             if (src == '')
-                $('iframe').attr('src', 'https://157.230.245.8/f');
+                $('iframe').attr('src', 'http://localhost:8088/Robot/robot/');
 
             if (msg.status == 1) {
                 setTimeout(function () {
@@ -76,7 +76,7 @@ $(document).ready(function () {
 
             var src = $('iframe').attr('src');
             if (src == '')
-                $('iframe').attr('src', 'https://157.230.245.8/f');
+                $('iframe').attr('src', 'http://localhost:8088/Robot/robot/');
 
             if (msg.status == 1) {
                 setTimeout(function () {
@@ -91,7 +91,7 @@ $(document).ready(function () {
 
             var src = $('iframe').attr('src');
             if (src == '')
-                $('iframe').attr('src', 'https://157.230.245.8/f');
+                $('iframe').attr('src', 'http://localhost:8088/Robot/robot/');
             // modal.hide();
             if (msg.status == 1) {
                 setTimeout(function () {

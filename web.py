@@ -45,7 +45,9 @@ def check_status2():
 
 def GET_STATUS():
     while True:
-        msg_robot_status, addr = sock_get_status.recvfrom(10)
+        print('!!!!!!!!!!!!!!')
+        msg_robot_status, addr = sock_get_status.recvfrom(35)
+        print('@@@@@@@')
         if addr[0] == UDP_IP_STATUS:
             if check_status():
                 status = 1
@@ -62,7 +64,7 @@ def CHECK_CONNECTION():
 
 @app.route('/')
 def index():
-    status = check_status()
+    status = True
     if status:
         classes = 'active'
     else:
@@ -77,7 +79,7 @@ def test_connect():
 
     if not thread.isAlive():
         print("Starting Thread")
-        thread = socketio.start_background_task(GET_STATUS)
+    thread = socketio.start_background_task(GET_STATUS)
 
 
 @socketio.on('connection2')

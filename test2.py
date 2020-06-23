@@ -3,6 +3,9 @@ import socket
 from time import sleep
 from constant import UDP_IP_STATUS, UDP_PORT_STATUS
 
+UDP_IP_STATUS = '127.0.0.1'
+UDP_PORT_STATUS = 3333
+
 
 sock_send_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
 sock_send_status.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -23,24 +26,24 @@ def TEST_LOOP():
     global robot_status, robot_status_updated
     cnt = 0
     robot_status = 1
+    print(robot_status)
     while True:
         sleep(0.1)
         cnt = cnt + 1
         if cnt == 1:
-            robot_status = 1 # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
+            robot_status = 3 # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
             robot_status_updated = 1
         elif cnt == 20:
-            robot_status = 2  # Ket noi tram dieu khien trung tam + Che do DK bang tay
+            robot_status = 3  # Ket noi tram dieu khien trung tam + Che do DK bang tay
             robot_status_updated = 1
         elif cnt == 40:
             robot_status = 3  # Ket noi tram dieu khien trung tam + Che do tu dong
             robot_status_updated = 1
         elif cnt == 60:
-            robot_status = 4  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status = 3  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
             robot_status_updated = 1
         elif cnt == 80:  # reset loop
             cnt = 0
-        print(robot_status)
 
 
 # ====================================== MAIN PROGRAM ============================#
