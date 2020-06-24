@@ -5,7 +5,7 @@ from time import sleep
 from constant import UDP_IP_STATUS, UDP_PORT_STATUS
 
 UDP_IP_STATUS = '127.0.0.1'
-UDP_PORT_STATUS = '12345'
+UDP_PORT_STATUS = 12345
 
 
 class QQTimer():
@@ -54,7 +54,7 @@ def TEST_LOOP():
     robot_status = 1
     status_cnt = 0
     while True:
-        sleep(0.02)
+        sleep(0.1)
         # Tao ra dieu kien de gui trang thai qua UDP
         cnt_1 = cnt_1 + 1
         if cnt_1 > 10:

@@ -12,8 +12,8 @@ import time
 import os
 
 __status =-1
-sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
-sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
+# sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
+# sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
 
 app = Flask(__name__)
 
@@ -46,6 +46,8 @@ def check_status2():
 def GET_STATUS():
     while True:
         print('!!!!!!!!!!!!!!')
+        sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
+        sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
         msg_robot_status, addr = sock_get_status.recvfrom(35)
         print('@@@@@@@')
         if addr[0] == UDP_IP_STATUS:
@@ -54,6 +56,7 @@ def GET_STATUS():
             else:
                 status = 0
             socketio.emit('newUdp', {'number': int(msg_robot_status), 'status': status})
+        sock_get_status.close()    
 
 
 def CHECK_CONNECTION():
