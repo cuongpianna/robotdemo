@@ -58,7 +58,7 @@ def TEST_LOOP():
         # Tao ra dieu kien de gui trang thai qua UDP
         cnt_1 = cnt_1 + 1
         if cnt_1 > 10:
-            status_cnt = 1;
+            status_cnt = 1
             cnt_1 = 0
 
         # Tao ra trang thai gia lap

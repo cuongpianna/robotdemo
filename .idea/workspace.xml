@@ -21,6 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bfff791b-0bb1-445f-99c8-74c5da09ed96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/send_status_UDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/send_status_UDP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/status_UDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/status_UDP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web.py" beforeDir="false" afterPath="$PROJECT_DIR$/web.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../robot_demo2" />
+    <property name="last_opened_file_path" value="D:/data/crawl/cuong_working" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -110,6 +113,9 @@
       <workItem from="1592537643761" duration="1189000" />
       <workItem from="1592893874327" duration="5427000" />
       <workItem from="1592906265428" duration="5755000" />
+      <workItem from="1594190216623" duration="13261000" />
+      <workItem from="1594276568619" duration="657000" />
+      <workItem from="1594281139339" duration="2702000" />
     </task>
     <servers />
   </component>

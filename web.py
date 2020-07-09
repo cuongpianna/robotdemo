@@ -10,6 +10,9 @@ import requests
 from tcping import Ping
 import time
 import os
+import websocket
+from websocket import create_connection
+import base64
 
 __status =-1
 sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
@@ -45,15 +48,29 @@ def check_status2():
 
 def GET_STATUS():
     while True:
-        print('!!!!!!!!!!!!!!')
-        msg_robot_status, addr = sock_get_status.recvfrom(35)
-        print('@@@@@@@')
+        msg_robot, addr = sock_get_status.recvfrom(35)
         if addr[0] == UDP_IP_STATUS:
             if check_status():
                 status = 1
             else:
                 status = 0
-            socketio.emit('newUdp', {'number': int(msg_robot_status), 'status': status})
+            msg_robot_status = msg_robot.decode('utf-8')
+            msg_robot_status = msg_robot_status[1:]
+            msg_robot_status = msg_robot_status.split('#')[2]
+            socketio.emit('newUdp', {'number': str(msg_robot_status), 'status': status})
+
+            # sock_net = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
+            # sock_net.sendto(bytes(msg_robot.decode('utf-8'), "utf-8"), ('127.0.0.1', 1111))
+            # sock_net.close()
+
+            ws = create_connection("ws://localhost:49411/downloadMedia")
+            print("Sending 'Hello, World'...")
+            ws.send(base64.b64encode(msg_robot))
+            print("Sent")
+            print("Receiving...")
+            result = ws.recv()
+            print("Received '%s'" % result)
+            ws.close()
 
 
 def CHECK_CONNECTION():
