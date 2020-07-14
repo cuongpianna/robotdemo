@@ -6,6 +6,7 @@ from threading import Thread, Event
 import requests
 from tcping import Ping
 from websocket import create_connection
+from websocket import WebSocket
 import base64
 
 __status =-1
@@ -48,7 +49,9 @@ def GET_STATUS():
             # sock_net.sendto(bytes(msg_robot.decode('utf-8'), "utf-8"), ('127.0.0.1', 1111))
             # sock_net.close()
 
-            ws = create_connection("ws://localhost:49411/downloadMedia")
+            # ws = create_connection("ws://localhost:49411/downloadMedia")
+            ws = WebSocket(sslopt={'check_hostname': False})
+            ws.connect('ws://localhost:49411/downloadMedia')
             ws.send(base64.b64encode(bytes(msg_robot.decode('utf-8') + '#' + '127.0.0.1:7000', "utf-8")))
             print("Sent")
             print("Receiving...")
