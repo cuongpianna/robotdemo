@@ -4,10 +4,10 @@ from constant import UDP_IP_STATUS, PORT2, IP_SERVER
 from flask_socketio import SocketIO
 from threading import Thread, Event
 import requests
-from tcping import Ping
 from websocket import create_connection
 from websocket import WebSocket
 import base64
+import ssl
 
 __status =-1
 sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
@@ -50,8 +50,8 @@ def GET_STATUS():
             # sock_net.close()
 
             # ws = create_connection("ws://localhost:49411/downloadMedia")
-            ws = WebSocket(sslopt={'check_hostname': False})
-            ws.connect('ws://localhost:49411/downloadMedia')
+            ws = WebSocket(sslopt={"cert_reqs": ssl.CERT_NONE})
+            ws.connect('wss://178.128.26.135/agency/downloadMedia')
             ws.send(base64.b64encode(bytes(msg_robot.decode('utf-8') + '#' + '127.0.0.1:7000', "utf-8")))
             print("Sent")
             print("Receiving...")
