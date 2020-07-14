@@ -1,22 +1,16 @@
 from flask import Flask, render_template, url_for, copy_current_request_context
-import random
-import threading
 import socket
-from constant import UDP_IP_STATUS, UDP_PORT_STATUS, IP_SERVER
+from constant import UDP_IP_STATUS, PORT2, IP_SERVER
 from flask_socketio import SocketIO
-from flask_socketio import emit
 from threading import Thread, Event
 import requests
 from tcping import Ping
-import time
-import os
-import websocket
 from websocket import create_connection
 import base64
 
 __status =-1
 sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
-sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
+sock_get_status.bind((UDP_IP_STATUS, PORT2))
 
 app = Flask(__name__)
 
@@ -33,15 +27,6 @@ def check_status():
             return True
         else:
             return False
-    except:
-        return False
-
-
-def check_status2():
-    ping = Ping(IP_SERVER)
-    try:
-        p = ping.ping(3)
-        return True
     except:
         return False
 
@@ -64,7 +49,7 @@ def GET_STATUS():
             # sock_net.close()
 
             ws = create_connection("ws://localhost:49411/downloadMedia")
-            ws.send(base64.b64encode(bytes(msg_robot.decode('utf-8') + '#' + '127.0.0.1:5000', "utf-8")))
+            ws.send(base64.b64encode(bytes(msg_robot.decode('utf-8') + '#' + '127.0.0.1:7000', "utf-8")))
             print("Sent")
             print("Receiving...")
             result = ws.recv()
@@ -117,4 +102,4 @@ def test_check_disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(app, port=7000)
