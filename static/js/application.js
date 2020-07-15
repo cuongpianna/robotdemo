@@ -10,23 +10,6 @@ $(document).ready(function () {
 
     var connectionNetwork = -1;
 
-    // socket.on('tt', function (msg) {
-    //     var connection = msg.connection;
-    //     if (connectionNetwork != connection) {
-    //         connectionNetwork = connection;
-    //         if (connection == 0) { // khong ket noi mang
-    //             modal.hide()
-    //         } else {
-    //             modal.show();
-    //         }
-    //     }
-    //
-    // })
-
-    // setInterval(function () {
-    //     socket.emit('connection2');
-    // }, 1000)
-
     // receive details from server
     socket.on('newUdp', function (msg) {
         console.log("Received number" + msg.number);
@@ -100,5 +83,26 @@ $(document).ready(function () {
             }
         }
     });
+
+    var socket2 = new WebSocket('ws://localhost:49411/robotUdp')
+    socket2.onopen = function() {
+              console.log('Connected.')
+            }
+
+    socket.onclose = function(event) {
+              setTimeout(function() {
+              }, 1000)
+              if (event.wasClean) {
+                console.log('Disconnected.')
+              } else {
+                console.log('Connection lost.') // for example if server processes is killed
+              }
+              console.log('Code: ' + event.code + '. Reason: ' + event.reason)
+            }
+
+    socket2.onmessage = function(event) {
+        var message = event.data
+        console.log('Data received: ' + message)
+    }
 
 });

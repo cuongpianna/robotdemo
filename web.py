@@ -64,6 +64,7 @@ def GET_STATUS():
             # sock_net.close()
 
             ws = create_connection("ws://localhost:49411/downloadMedia")
+            # ws = create_connection("wss://178.128.26.135/agency/downloadMedia")
             ws.send(base64.b64encode(bytes(msg_robot.decode('utf-8') + '#' + '127.0.0.1:5000', "utf-8")))
             print("Sent")
             print("Receiving...")

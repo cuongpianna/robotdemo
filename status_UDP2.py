@@ -27,16 +27,16 @@ def TEST_LOOP():
         sleep(0.1)
         cnt = cnt + 1
         if cnt == 1:
-            robot_status = '@5#14#0#1#1500#876#90#0#0#0#95#1' # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
+            robot_status = '@5#14#0#1#1400#876#90#0#0#0#95#1' # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
             robot_status_updated = 1
         elif cnt == 20:
-            robot_status = '@5#14#1#1#2000#876#90#0#0#0#94#1'  # Ket noi tram dieu khien trung tam + Che do DK bang tay
+            robot_status = '@5#14#1#1#1900#876#90#0#0#0#94#1'  # Ket noi tram dieu khien trung tam + Che do DK bang tay
             robot_status_updated = 1
         elif cnt == 40:
-            robot_status = '@5#14#1#1#2500#876#90#0#0#0#93#1'  # Ket noi tram dieu khien trung tam + Che do tu dong
+            robot_status = '@5#14#1#1#2400#876#90#0#0#0#93#1'  # Ket noi tram dieu khien trung tam + Che do tu dong
             robot_status_updated = 1
         elif cnt == 60:
-            robot_status = '@5#14#1#1#3000#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status = '@5#14#1#1#3100#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
             robot_status_updated = 1
         elif cnt == 80:  # reset loop
             cnt = 0
