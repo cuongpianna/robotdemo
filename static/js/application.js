@@ -11,12 +11,12 @@ $(document).ready(function () {
     var connectionNetwork = -1;
 
     // receive details from server
-    socket.on('newUdp', function (msg) {
+    socket.on('leave', function (msg) {
         console.log("Received number" + msg.number);
         socket.emit('status', msg.number);
         //maintain a list of ten numbers
         if (numbers_received.length >= 10) {
-            numbers_received.shift()
+            numbers_received.shift();
         }
         numbers_received.push(msg.number);
         var numbers_string = '';
@@ -85,24 +85,26 @@ $(document).ready(function () {
     });
 
     var socket2 = new WebSocket('ws://localhost:49411/robotUdp')
-    socket2.onopen = function() {
-              console.log('Connected.')
-            }
+    socket2.onopen = function () {
+        console.log('Connected.')
 
-    socket.onclose = function(event) {
-              setTimeout(function() {
-              }, 1000)
-              if (event.wasClean) {
-                console.log('Disconnected.')
-              } else {
-                console.log('Connection lost.') // for example if server processes is killed
-              }
-              console.log('Code: ' + event.code + '. Reason: ' + event.reason)
-            }
+    }
 
-    socket2.onmessage = function(event) {
+    socket2.onclose = function (event) {
+        setTimeout(function () {
+        }, 1000)
+        if (event.wasClean) {
+            console.log('Disconnected.')
+        } else {
+            console.log('Connection lost.') // for example if server processes is killed
+        }
+        console.log('Code: ' + event.code + '. Reason: ' + event.reason)
+    }
+
+    socket2.onmessage = function (event) {
         var message = event.data
         console.log('Data received: ' + message)
+        socket.emit('getUdp', {value: message});
     }
 
 });

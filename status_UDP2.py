@@ -27,18 +27,54 @@ def TEST_LOOP():
         sleep(0.1)
         cnt = cnt + 1
         if cnt == 1:
-            robot_status = '@5#14#0#1#1400#876#90#0#0#0#95#1' # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
+            robot_status = '@5#14#0#1#800#876#90#0#0#0#95#1' # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
             robot_status_updated = 1
         elif cnt == 20:
-            robot_status = '@5#14#1#1#1900#876#90#0#0#0#94#1'  # Ket noi tram dieu khien trung tam + Che do DK bang tay
+            robot_status = '@5#14#1#1#1100#876#90#0#0#0#94#1'  # Ket noi tram dieu khien trung tam + Che do DK bang tay
             robot_status_updated = 1
         elif cnt == 40:
-            robot_status = '@5#14#1#1#2400#876#90#0#0#0#93#1'  # Ket noi tram dieu khien trung tam + Che do tu dong
+            robot_status = '@5#14#1#1#1300#876#90#0#0#0#93#1'  # Ket noi tram dieu khien trung tam + Che do tu dong
             robot_status_updated = 1
         elif cnt == 60:
-            robot_status = '@5#14#1#1#3100#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status = '@5#14#1#1#1550#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
             robot_status_updated = 1
         elif cnt == 80:  # reset loop
+            robot_status = '@5#14#1#1#1750#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 100:  # reset loop
+            robot_status = '@5#14#1#1#2000#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 120:  # reset loop
+            robot_status = '@5#14#1#1#2250#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 140:  # reset loop
+            robot_status = '@5#14#1#1#2450#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 160:  # reset loop
+            robot_status = '@5#14#1#1#2700#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 180:  # reset loop
+            robot_status = '@5#14#1#1#2900#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 200:  # reset loop
+            robot_status = '@5#14#1#1#3150#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 220:  # reset loop
+            robot_status = '@5#14#1#1#3350#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 240:  # reset loop
+            robot_status = '@5#14#1#1#3600#876#90#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 260:  # reset loop
+            robot_status = '@5#14#1#1#3780#776#0#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        elif cnt == 280:  # reset loop
+            robot_status = '@5#14#1#1#3780#366#180#0#0#0#92#1'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+            robot_status_updated = 1
+        # elif cnt == 300:  # reset loop
+        #     robot_status = '@5#14#1#1#3780#776#90#0#0#0#92#1'
+        #     robot_status_updated = 1
+        elif cnt == 320:
             cnt = 0
         print(robot_status)
 

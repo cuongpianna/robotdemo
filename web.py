@@ -68,7 +68,7 @@ def GET_STATUS():
             ws = create_connection("ws://localhost:49411/downloadMedia")
             # ws = create_connection("wss://178.128.26.135/agency/downloadMedia")
             ws = WebSocket(sslopt={"cert_reqs": ssl.CERT_NONE})
-            ws.connect('wss://178.128.26.135/agency/downloadMedia')
+            ws.connect('ws://localhost:49411/downloadMedia')
             ws.send(base64.b64encode(bytes(msg_robot.decode('utf-8') + '#' + '127.0.0.1:5000', "utf-8")))
             print("Sent")
             print("Receiving...")
@@ -122,4 +122,4 @@ def test_check_disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(app, port=5001)
