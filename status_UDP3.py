@@ -1,10 +1,7 @@
 import threading
-from time import sleep
 import socket
+from time import sleep
 from constant import UDP_IP_STATUS, PORT2
-from websocket import create_connection
-import base64
-
 
 
 sock_send_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
@@ -19,9 +16,6 @@ def SEND_STATUS():
             robot_status_updated = 0
             msg_send = str(robot_status)
             sock_send_status.sendto(''.join(msg_send).encode(), (UDP_IP_STATUS, PORT2))
-            ws = create_connection("ws://localhost:49411/downloadMedia")
-            ws.send(base64.b64encode(bytes(robot_status + '#' + '127.0.0.1:7000', "utf-8")))
-            ws.close()
 
 threading.Thread(target=SEND_STATUS).start()
 
@@ -32,8 +26,10 @@ def TEST_LOOP():
     while True:
         sleep(0.1)
         cnt = cnt + 1
+        sleep(0.1)
+        cnt = cnt + 1
         if cnt == 1:
-            robot_status = '@5#14#0#1#800#876#90#0#0#0#95#1' # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
+            robot_status = '@5#14#0#1#800#876#90#0#0#0#95#1'  # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
             robot_status_updated = 1
         elif cnt == 20:
             robot_status = '@5#14#1#1#1100#876#90#0#0#0#94#1'  # Ket noi tram dieu khien trung tam + Che do DK bang tay
@@ -82,7 +78,6 @@ def TEST_LOOP():
         #     robot_status_updated = 1
         elif cnt == 320:
             cnt = 0
-        print(robot_status)
 
 
 # ====================================== MAIN PROGRAM ============================#

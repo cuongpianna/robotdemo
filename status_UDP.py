@@ -1,7 +1,7 @@
 import threading
 import socket
 from time import sleep
-from constant import UDP_IP_STATUS, UDP_PORT_STATUS
+from constant import UDP_IP_STATUS, PORT2
 
 
 sock_send_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
@@ -15,7 +15,7 @@ def SEND_STATUS():
         if robot_status_updated:
             robot_status_updated = 0
             msg_send = str(robot_status)
-            sock_send_status.sendto(''.join(msg_send).encode(), (UDP_IP_STATUS, UDP_PORT_STATUS))
+            sock_send_status.sendto(''.join(msg_send).encode(), (UDP_IP_STATUS, PORT2))
 
 threading.Thread(target=SEND_STATUS).start()
 
