@@ -21,13 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfff791b-0bb1-445f-99c8-74c5da09ed96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_status_UDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_status_UDP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/send_status_UDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/send_status_UDP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/status_UDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/status_UDP.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/status_UDP2.py" beforeDir="false" afterPath="$PROJECT_DIR$/status_UDP2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/test2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test3.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/data/flask-hello-world" />
+    <property name="last_opened_file_path" value="D:/data/crawl/demoo" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -172,7 +167,10 @@
       <workItem from="1595495774173" duration="6846000" />
       <workItem from="1595815992860" duration="8521000" />
       <workItem from="1595901055756" duration="40972000" />
-      <workItem from="1596420266712" duration="5819000" />
+      <workItem from="1596420266712" duration="22699000" />
+      <workItem from="1596618122340" duration="906000" />
+      <workItem from="1596623137269" duration="497000" />
+      <workItem from="1596682270567" duration="481000" />
     </task>
     <servers />
   </component>
