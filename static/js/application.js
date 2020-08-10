@@ -1,29 +1,17 @@
 $(document).ready(function () {
-
+    const robot_code = $('body').attr('data-robot');
+    const videoCallUrl = $('body').attr('data-call');
+    const wsFrom = $('body').attr('data-wsfrom');
     var e = 0;
 
     var modal = $('.modal');
     //connect to the socket server.
     var socket = io.connect('http://' + document.domain + ':' + location.port);
 
-    var numbers_received = [];
-
-    var connectionNetwork = -1;
-
     // receive details from server
     socket.on('leave', function (msg) {
         console.log("Received number" + msg.number);
         socket.emit('status', msg.number);
-        //maintain a list of ten numbers
-        if (numbers_received.length >= 10) {
-            numbers_received.shift();
-        }
-        numbers_received.push(msg.number);
-        var numbers_string = '';
-        var status = '';
-        for (var i = 0; i < numbers_received.length; i++) {
-            numbers_string = numbers_string + '<p>' + numbers_received[i].toString() + '</p>';
-        }
 
         e = msg.status;
 
@@ -42,7 +30,7 @@ $(document).ready(function () {
             $('.robot-info').html(status);
             var src = $('iframe').attr('src');
             if (src == '')
-                $('iframe').attr('src', 'http://localhost:8088/Robot/robot/');
+                $('iframe').attr('src', videoCallUrl);
 
             if (msg.status == 1) {
                 setTimeout(function () {
@@ -59,7 +47,7 @@ $(document).ready(function () {
 
             var src = $('iframe').attr('src');
             if (src == '')
-                $('iframe').attr('src', 'http://localhost:8088/Robot/robot/');
+                $('iframe').attr('src', videoCallUrl);
 
             if (msg.status == 1) {
                 setTimeout(function () {
@@ -74,7 +62,7 @@ $(document).ready(function () {
 
             var src = $('iframe').attr('src');
             if (src == '')
-                $('iframe').attr('src', 'http://localhost:8088/Robot/robot/');
+                $('iframe').attr('src', videoCallUrl);
             // modal.hide();
             if (msg.status == 1) {
                 setTimeout(function () {
@@ -84,10 +72,9 @@ $(document).ready(function () {
         }
     });
 
-    var socket2 = new WebSocket('ws://localhost:49411/robotUdp')
+    var socket2 = new WebSocket(wsFrom)
     socket2.onopen = function () {
         console.log('Connected.')
-
     }
 
     socket2.onclose = function (event) {
@@ -96,15 +83,18 @@ $(document).ready(function () {
         if (event.wasClean) {
             console.log('Disconnected.')
         } else {
-            console.log('Connection lost.') // for example if server processes is killed
+            console.log('Connection lost.')
         }
         console.log('Code: ' + event.code + '. Reason: ' + event.reason)
     }
 
     socket2.onmessage = function (event) {
+        // @2#16#2#1.5#&_R70448
         var message = event.data
-        console.log('Data received: ' + message)
-        socket.emit('getUdp', {value: message});
+        var robotNo = message.split("&_");
+        if (robotNo[1] != undefined && robotNo[1] == robot_code) {
+            console.log('Data received: ' + robotNo[0])
+            socket.emit('leave', {value: robotNo[0]});
+        }
     }
-
 });

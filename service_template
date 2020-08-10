@@ -14,3 +14,8 @@ ExecStart=/home/robot/robotdemo/venv/bin/python /home/robot/robotdemo/status_UDP
 [Install]
 
 WantedBy=multi-user.target
+
+
+# ws = WebSocket(sslopt={"cert_reqs": ssl.CERT_NONE})
+# ws.connect('wss://178.128.26.135/agency/downloadMedia')
+# ws = create_connection("wss://178.128.26.135/agency/downloadMedia")
