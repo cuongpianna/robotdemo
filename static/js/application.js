@@ -91,9 +91,9 @@ $(document).ready(function () {
     socket2.onmessage = function (event) {
         // @2#16#2#1.5#&_R70448
         var message = event.data
+        console.log('Data received: ' + message)
         var robotNo = message.split("&_");
         if (robotNo[1] != undefined && robotNo[1] == robot_code) {
-            console.log('Data received: ' + robotNo[0])
             socket.emit('leave', {value: robotNo[0]});
         }
     }
