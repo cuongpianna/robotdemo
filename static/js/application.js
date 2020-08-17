@@ -84,7 +84,7 @@ $(document).ready(function () {
         }
     });
 
-    var socket2 = new WebSocket('ws://localhost:49411/robotUdp')
+    var socket2 = new WebSocket('wss://oriwave.net/agency/robotUdp')
     socket2.onopen = function () {
         console.log('Connected.')
 
