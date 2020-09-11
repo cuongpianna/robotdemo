@@ -66,13 +66,13 @@ def TEST_LOOP():
         robot_status_updated = 1
         if cnt == 1:
             robot_status = '@5#14#1#1#800#876#90#0#0#0#95#1'  # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay
-        elif cnt == 500:
-            robot_status = '@5#14#1#1#800#876#90#0#0#0#95#2'  # Ket noi tram dieu khien trung tam + Che do DK bang tay
-        elif cnt == 1000:
-            robot_status = '@5#14#1#1#800#876#90#0#0#0#95#3'  # Ket noi tram dieu khien trung tam + Che do tu dong
-        elif cnt == 1500:
-            robot_status = '@5#14#1#1#800#876#90#0#0#0#95#4'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
-        elif cnt == 2000:  # reset loop
+        elif cnt == 20:
+            robot_status = '@5#14#1#1#900#876#90#0#0#0#95#2'  # Ket noi tram dieu khien trung tam + Che do DK bang tay
+        elif cnt == 40:
+            robot_status = '@5#14#1#1#1000#876#90#0#0#0#95#3'  # Ket noi tram dieu khien trung tam + Che do tu dong
+        elif cnt == 60:
+            robot_status = '@5#14#1#1#1200#876#90#0#0#0#95#4'  # Ket noi tram dieu khien trung tam + Che do tu dong bam vach tu
+        elif cnt == 80:  # reset loop
             cnt = 0
 
 

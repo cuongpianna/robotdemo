@@ -3,7 +3,7 @@ UDP_PORT_STATUS = 12345
 URL_ENDPOINT = 'http://localhost:5000/endpoint'
 URL_BASE = 'http://localhost:5000/dktt'
 IP_SERVER = 'https://discourse.nodered.org/t/how-to-display-cctv-camera-in-dashboard-rtsp/5860/22s'
-ROBOT_CODE = 'R70448'
+ROBOT_CODE = 'R32124'
 LOCAL_WS = 'ws://localhost:49411/downloadMedia'
 SERVER_WS = 'wss://oriwave.net/agency/downloadMedia'
 
