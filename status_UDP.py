@@ -15,6 +15,7 @@ def SEND_STATUS():
         if robot_status_updated:
             robot_status_updated = 0
             msg_send = str(robot_status)
+            print(msg_send)
             sock_send_status.sendto(''.join(msg_send).encode(), (UDP_IP_STATUS, UDP_PORT_STATUS))
 
 threading.Thread(target=SEND_STATUS).start()
@@ -24,7 +25,7 @@ def TEST_LOOP():
     cnt = 0
     robot_status = 1
     while True:
-        sleep(0.1)
+        sleep(0.01)
         cnt = cnt + 1
         if cnt == 1:
             robot_status = 2 # KHONG ket noi voi tram dieu khien trung tam + Che do DK bang tay

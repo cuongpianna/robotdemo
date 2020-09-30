@@ -1,19 +1,16 @@
-from flask import Flask, render_template, url_for, copy_current_request_context
-import random
-import threading
+from flask import Flask, render_template, url_for
 import socket
-from constant import UDP_IP_STATUS, UDP_PORT_STATUS, IP_SERVER
+from constant import UDP_IP_STATUS, UDP_PORT_STATUS, IP_SERVER, DOWNLOAD_MEDIA, API_DOWNLOAD_MEDIA, ROBOT_CODE, \
+    VIDEO_CALL_URL, MEDIA_SERVER_HOST, WEBSOCKET_MEDIA, WEBSOCKET_SEND_UDP, IP_SEND_ROBOT, PORT_SEND_ROBOT
 from flask_socketio import SocketIO
-from flask_socketio import emit
 from threading import Thread, Event
 import requests
-from tcping import Ping
-import time
-import os
+requests.packages.urllib3.disable_warnings()
+import json
+import wget
 
-__status =-1
-sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
-sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
+
+__status = -1
 
 app = Flask(__name__)
 
@@ -34,17 +31,10 @@ def check_status():
         return False
 
 
-def check_status2():
-    ping = Ping(IP_SERVER)
-    try:
-        p = ping.ping(3)
-        return True
-    except:
-        return False
-
-
 def GET_STATUS():
     while True:
+        sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
+        sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
         msg_robot_status, addr = sock_get_status.recvfrom(10)
         if addr[0] == UDP_IP_STATUS:
             if check_status():
@@ -52,6 +42,7 @@ def GET_STATUS():
             else:
                 status = 0
             socketio.emit('newUdp', {'number': int(msg_robot_status), 'status': status})
+        sock_get_status.close()
 
 
 def CHECK_CONNECTION():
@@ -63,11 +54,12 @@ def CHECK_CONNECTION():
 @app.route('/')
 def index():
     status = check_status()
-    if status:
-        classes = 'active'
-    else:
-        classes = 'deactive'
-    return render_template('index.html', classes = classes)
+    robot_code = ROBOT_CODE
+    ws_from = WEBSOCKET_SEND_UDP
+    websocket_media = WEBSOCKET_MEDIA
+    classes = 'active'
+    return render_template('index.html', classes=classes, robot_code=robot_code, video_call_url=VIDEO_CALL_URL,
+                           ws_from=ws_from, websocket_media=websocket_media)
 
 
 @socketio.on('connect')
@@ -80,22 +72,46 @@ def test_connect():
         thread = socketio.start_background_task(GET_STATUS)
 
 
-@socketio.on('connection2')
-def check_connect():
-    print('Check connection!!!!!!')
-    global __status
-    print(__status)
-    thread = socketio.start_background_task(CHECK_CONNECTION)
 @socketio.on('status')
 def check_connect(sta):
     global __status
-    __status =sta
+    __status = sta
+
 
 @socketio.on('disconnect')
 def test_check_disconnect():
     print('Client disconnected!!!!!!!')
-    global __status
-    __status =-1
+
+
+@socketio.on('leave')
+def leave(message):
+    value = message['value']
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        sock.sendto(value.encode(), (IP_SEND_ROBOT, PORT_SEND_ROBOT))
+    except:
+        sock.close()
+    finally:
+        sock.close()
+
+
+@socketio.on('download')
+def download(message):
+    value = message['value']
+    value = value.split('_')
+    media_id = value[2]
+    robot_id = value[3]
+    res = requests.post(API_DOWNLOAD_MEDIA, json={
+        'RobotId': robot_id,
+        'MediaIds': [media_id]
+    })
+    res = json.loads(res.text)
+
+    if res['records']:
+        for record in res['records']:
+            print('DONWWLOAD ANH')
+            url_image = MEDIA_SERVER_HOST.format(record["fileName"])
+            wget.download(url_image, DOWNLOAD_MEDIA.format(record["fileName"]))
 
 
 if __name__ == '__main__':
