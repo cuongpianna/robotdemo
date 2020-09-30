@@ -1,12 +1,13 @@
 from flask import Flask, render_template
 import socket
 from constant import UDP_IP_STATUS, UDP_PORT_STATUS, IP_SERVER, ROBOT_CODE, IP_SEND_ROBOT, PORT_SEND_ROBOT, \
-    VIDEO_CALL_URL, LOCAL_WS_FROM, SERVER_WS_FROM, IS_PRODUCT
+    VIDEO_CALL_URL, WEBSOCKET_SEND_UDP, WEBSOCKET_MEDIA, API_DOWNLOAD_MEDIA, DOWNLOAD_MEDIA, \
+    MEDIA_SERVER_HOST
 from flask_socketio import SocketIO
 from threading import Thread, Event
 import requests
-from websocket import create_connection
-import base64
+import json
+import wget
 
 app = Flask(__name__)
 
@@ -31,25 +32,16 @@ def GET_STATUS():
     while True:
         sock_get_status = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # UDP
         sock_get_status.bind((UDP_IP_STATUS, UDP_PORT_STATUS))
-        msg_robot, addr = sock_get_status.recvfrom(35)
+        msg_robot, addr = sock_get_status.recvfrom(10)
+        print(msg_robot)
         if addr[0] == UDP_IP_STATUS:
             if check_status():
                 status = 1
             else:
                 status = 0
             msg_robot_status = msg_robot.decode('utf-8')
-            msg_robot_status = msg_robot_status[1:]
-            msg_robot_status = msg_robot_status.split('#')[2]
             socketio.emit('newUdp', {'number': str(msg_robot_status), 'status': status})
         sock_get_status.close()
-
-        # ws = create_connection("ws://localhost:49411/downloadMedia")
-        # ws.send(base64.b64encode(bytes(msg_robot.decode('utf-8') + '#' + '127.0.0.1:7000', "utf-8")))
-        # print("Sent")
-        # print("Receiving...")
-        # result = ws.recv()
-        # print("Received '%s'" % result)
-        # ws.close()
 
 
 def CHECK_CONNECTION():
@@ -62,16 +54,14 @@ def CHECK_CONNECTION():
 def index():
     status = True
     robot_code = ROBOT_CODE
-    if IS_PRODUCT:
-        ws_from = SERVER_WS_FROM
-    else:
-        ws_from = LOCAL_WS_FROM
+    ws_from = WEBSOCKET_SEND_UDP
+    websocket_media = WEBSOCKET_MEDIA
     if status:
         classes = 'active'
     else:
         classes = 'deactive'
     return render_template('index.html', classes=classes, robot_code=robot_code, video_call_url=VIDEO_CALL_URL,
-                           ws_from=ws_from)
+                           ws_from=ws_from, websocket_media=websocket_media)
 
 
 @socketio.on('connect')
@@ -105,6 +95,24 @@ def leave(message):
         sock.close()
     finally:
         sock.close()
+
+
+@socketio.on('download')
+def download(message):
+    value = message['value']
+    value = value.split('_')
+    media_id = value[2]
+    robot_id = value[3]
+    res = requests.post(API_DOWNLOAD_MEDIA, json={
+        'RobotId': robot_id,
+        'MediaIds': [media_id]
+    })
+    res = json.loads(res.text)
+
+    if res['records']:
+        for record in res['records']:
+            url_image = MEDIA_SERVER_HOST.format(record["fileName"])
+            wget.download(url_image, DOWNLOAD_MEDIA.format(record["fileName"]))
 
 
 if __name__ == '__main__':

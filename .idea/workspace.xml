@@ -22,7 +22,16 @@
     <list default="true" id="bfff791b-0bb1-445f-99c8-74c5da09ed96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/constant.py" beforeDir="false" afterPath="$PROJECT_DIR$/constant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test3.py" beforeDir="false" afterPath="$PROJECT_DIR$/test3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_status_UDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_status_UDP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/send_status_UDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/send_status_UDP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web2.py" beforeDir="false" afterPath="$PROJECT_DIR$/web2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +64,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test/chatbot" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -186,6 +195,12 @@
       <workItem from="1599194512934" duration="911000" />
       <workItem from="1599429160585" duration="3212000" />
       <workItem from="1599447040326" duration="2503000" />
+      <workItem from="1600047796798" duration="1156000" />
+      <workItem from="1600053573935" duration="144000" />
+      <workItem from="1601350730423" duration="1573000" />
+      <workItem from="1601361749149" duration="6980000" />
+      <workItem from="1601430351771" duration="3237000" />
+      <workItem from="1601439780312" duration="422000" />
     </task>
     <servers />
   </component>

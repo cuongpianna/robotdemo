@@ -6,7 +6,7 @@
     <script src="static/js/application.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
 </head>
-<body data-robot="{{ robot_code }}" data-call="{{ video_call_url }}" data-wsfrom="{{ ws_from }}">
+<body data-robot="{{ robot_code }}" data-call="{{ video_call_url }}" data-wsfrom="{{ ws_from }}" data-wsmedia="{{ websocket_media }}">
 
 
 </div>
@@ -19,9 +19,6 @@
         <div class="row">
             <h1 id="mode">Chế độ điều khiển bằng tay</h1>
         </div>
-    </div>
-    <div class="robot-info">
-        LED Base_Station OFF + LED Manual_Mode ON
     </div>
 </div>
 
