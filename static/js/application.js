@@ -6,9 +6,11 @@ $(document).ready(function () {
     const wsFrom = $('body').attr('data-wsfrom');
     const wsDownloadMedia = $('body').attr('data-wsmedia');
 
+    console.log(wsFrom);
+
     var modal = $('.modal');
     //connect to the socket server.
-    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    var socket = io.connect('https://' + document.domain + ':' + location.port);
 
 
     // receive details from server
