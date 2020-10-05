@@ -1,5 +1,4 @@
-from flask import Flask, render_template, url_for
-import socket
+from flask import Flask, render_template
 from constant import UDP_IP_STATUS, UDP_PORT_STATUS, IP_SERVER, DOWNLOAD_MEDIA, API_DOWNLOAD_MEDIA, ROBOT_CODE, \
     VIDEO_CALL_URL, MEDIA_SERVER_HOST, WEBSOCKET_MEDIA, WEBSOCKET_SEND_UDP, IP_SEND_ROBOT, PORT_SEND_ROBOT
 from flask_socketio import SocketIO
@@ -8,6 +7,10 @@ import requests
 requests.packages.urllib3.disable_warnings()
 import json
 import wget
+import socket
+from websocket import WebSocket
+import base64
+import ssl
 
 
 __status = -1
@@ -97,6 +100,7 @@ def leave(message):
 
 @socketio.on('download')
 def download(message):
+    ws_url = WEBSOCKET_MEDIA
     value = message['value']
     value = value.split('_')
     media_id = value[2]
@@ -112,6 +116,10 @@ def download(message):
             print('DONWWLOAD ANH')
             url_image = MEDIA_SERVER_HOST.format(record["fileName"])
             wget.download(url_image, DOWNLOAD_MEDIA.format(record["fileName"]))
+        ws = WebSocket(sslopt={"cert_reqs": ssl.CERT_NONE})
+        ws.connect(ws_url)
+        ws.send(base64.b64encode(bytes('reload_' + ROBOT_CODE, "utf-8")))
+        ws.close()
 
 
 if __name__ == '__main__':

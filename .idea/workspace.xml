@@ -21,21 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bfff791b-0bb1-445f-99c8-74c5da09ed96" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/browser_factory.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/chromedriver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/geckodriver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/constant.py" beforeDir="false" afterPath="$PROJECT_DIR$/constant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/status_UDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/status_UDP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/endpoint.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web.py" beforeDir="false" afterPath="$PROJECT_DIR$/web.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -122,7 +107,10 @@
       <workItem from="1590372728334" duration="9202000" />
       <workItem from="1590475313922" duration="4293000" />
       <workItem from="1590757694751" duration="13798000" />
-      <workItem from="1601441519835" duration="7456000" />
+      <workItem from="1601441519835" duration="13855000" />
+      <workItem from="1601546382628" duration="1709000" />
+      <workItem from="1601621226437" duration="2401000" />
+      <workItem from="1601708817536" duration="829000" />
     </task>
     <servers />
   </component>
