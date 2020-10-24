@@ -20,25 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfff791b-0bb1-445f-99c8-74c5da09ed96" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/browser_factory.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/chromedriver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/geckodriver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/check.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/constant.py" beforeDir="false" afterPath="$PROJECT_DIR$/constant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_info_robot.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_info_robot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_template" beforeDir="false" afterPath="$PROJECT_DIR$/service_template" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/status_UDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/status_UDP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/endpoint.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web.py" beforeDir="false" afterPath="$PROJECT_DIR$/web.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,18 +67,6 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="RobotDemo" type="Python.FlaskServer">
@@ -134,27 +112,17 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590302655503">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="324" y="85" key="SettingsEditor" timestamp="1602491201995">
+      <screen x="0" y="34" width="1920" height="1009" />
     </state>
-    <state x="709" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1590302655503" />
-    <state x="718" y="275" key="FileChooserDialogImpl" timestamp="1590537003339">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1202" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1590315302431" />
-    <state x="718" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1590537003339" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1590537019580">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1590537019580" />
+    <state x="324" y="85" key="SettingsEditor/0.34.1920.1009@0.34.1920.1009" timestamp="1602491201995" />
   </component>
 </project>

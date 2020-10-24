@@ -10,7 +10,11 @@ $(document).ready(function () {
 
     var modal = $('.modal');
     //connect to the socket server.
-    var socket = io.connect('https://' + document.domain + ':' + location.port);
+    var socket = io.connect('https://' + document.domain + ':' + location.port, {
+        'reconnection': true,
+        'reconnectionDelay': 500,
+        'reconnectionAttemps': 10
+    });
 
 
     // receive details from server
@@ -45,13 +49,15 @@ $(document).ready(function () {
         }
     });
 
-        var socket2 = new WebSocket(wsFrom)
+    function connect2() {
+    var socket2 = new WebSocket(wsFrom)
     socket2.onopen = function () {
         console.log('Connected.')
     }
 
     socket2.onclose = function (event) {
         setTimeout(function () {
+        connect2();
         }, 1000)
         if (event.wasClean) {
             console.log('Disconnected.')
@@ -69,16 +75,23 @@ $(document).ready(function () {
         if (robotNo[1] != undefined && robotNo[1] == robot_code) {
             socket.emit('leave', {value: robotNo[0]});
         }
-    }
+    }}
 
-    var socketMedia = new WebSocket(wsDownloadMedia)
+    function connectMedia() {
+        var socketMedia = new WebSocket(wsDownloadMedia)
     socketMedia.onopen = function () {
         console.log('Connected.')
     }
 
     socketMedia.onclose = function (event) {
         setTimeout(function () {
+        connectMedia();
+        socketMedia.onopen = function () {
+        console.log('Connected.')
+    }
         }, 1000)
+
+
         if (event.wasClean) {
             console.log('Disconnected.')
         } else {
@@ -103,5 +116,9 @@ $(document).ready(function () {
             }
         }
     }
+    }
+
+    connect2();
+    connectMedia();
 
 });

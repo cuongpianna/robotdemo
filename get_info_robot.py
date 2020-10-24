@@ -22,6 +22,7 @@ def GET_STATUS():
                 ws.close()
             socket_udp.close()
         except:
+            print('ssss')
             pass
 
 

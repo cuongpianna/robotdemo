@@ -4,11 +4,9 @@ After=network.target
 
 [Service]
 
-User=robot
-Group=www-data
-WorkingDirectory=/home/robot/robotdemo
-Environment="PATH=/home/robot/robotdemo/venv/bin"
-ExecStart=/home/robot/robotdemo/venv/bin/python /home/robot/robotdemo/status_UDP.py
+WorkingDirectory=/home/vibot/Desktop/test/robotdemo
+Environment="PATH=/home/vibot/Desktop/test/robotdemo/venv/bin"
+ExecStart=/home/vibot/Desktop/test/robotdemo/venv/bin/python /home/vibot/Desktop/test/robotdemo/get_info_robot.py
 
 
 [Install]

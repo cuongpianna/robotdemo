@@ -8,6 +8,9 @@ import requests
 requests.packages.urllib3.disable_warnings()
 import json
 import wget
+import ssl
+from websocket import create_connection, WebSocket
+import base64
 
 
 __status = -1
@@ -104,14 +107,25 @@ def download(message):
     res = requests.post(API_DOWNLOAD_MEDIA, json={
         'RobotId': robot_id,
         'MediaIds': [media_id]
-    })
+    }, verify=False)
     res = json.loads(res.text)
+    # print('!!!!!!!!')
+    # print(res)
 
     if res['records']:
         for record in res['records']:
             print('DONWWLOAD ANH')
             url_image = MEDIA_SERVER_HOST.format(record["fileName"])
-            wget.download(url_image, DOWNLOAD_MEDIA.format(record["fileName"]))
+            print(url_image)
+
+            ssl._create_default_https_context = ssl._create_unverified_context
+            print(wget.download(url_image, DOWNLOAD_MEDIA.format(record["fileName"])))
+
+            ws = WebSocket(sslopt={"cert_reqs": ssl.CERT_NONE})
+            ws_url = 'wss://172.20.10.2:9000/agency/downloadMedia'
+            ws.connect(ws_url)
+            ws.send(base64.b64encode(bytes('reload', "utf-8")))
+            ws.close()
 
 
 if __name__ == '__main__':
